@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Sahabat Muslim</string>
+
+    <string name="title_section1">Sahabat Muslim</string>
+    <string name="title_section2">About</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <!-- ACRA strings -->
+    <string name="crash_mail_to">app-report@zaitunlabs.com</string>
+    <string name="crash_toast_text">Ooooops ! I crashed, a report need to be sent to my developer to help fix the issue !</string>
+    <string name="crash_notif_ticker_text">Unexpected error, please send a report</string>
+    <string name="crash_notif_title">CrashTest has crashed</string>
+    <string name="crash_notif_text">Please click here to help fix the issue.</string>
+    <string name="crash_dialog_title">CrashTest has crashed</string>
+    <string name="crash_dialog_text">An unexpected error occurred forcing the
+    application to stop. Please help us fix this by sending us error data,
+    all you have to do is click OK.</string>
+    <string name="crash_dialog_comment_prompt">You might add your comments about the problem below:</string>
+    <string name="crash_dialog_ok_toast">Thank you !</string>
+    <string name="warning_connection_problem">Oops! there is a problem in your connection</string>
+    <string name="reload_text_when_connetion_problem">Reload</string>
+    <string name="download_option_dialog_init">download</string>
+    <string name="close_option_dialog_init">close</string>
+    <string name="use_existing_option_dialog_init">ignore</string>
+    <string name="message_sukses_add_reminder">berhasil menambahkan pengingat kajian</string>
+    <string name="title_tambah_pengingat">Konfirmasi Pengingat Kajian</string>
+    <string name="message_tambah_pengingat">Apakah anda ingin diingatkan?</string>
+    <string name="lanjutkan">ingatkan</string>
+    <string name="batalkan">batalkan</string>
+
+
+    <string name="smartx_notification_error_ssl_date_invalid">Tanggal sertifikat tidak valid</string>
+    <string name="smartx_notification_error_ssl_expired">Sertifikat habis</string>
+    <string name="smartx_notification_error_ssl_idmismatch">Hostname salah</string>
+    <string name="smartx_notification_error_ssl_invalid">Kesalahan Umum terjadi</string>
+    <string name="smartx_notification_error_ssl_not_yet_valid">Sertifikat belum valid</string>
+    <string name="smartx_notification_error_ssl_untrusted">Otoritas sertifikat tidak terpercaya</string>
+    <string name="smartx_notification_error_ssl_cert_invalid">Sertifikan tidak valid</string>
+    <string name="smartx_notification_error_ssl_title">Peringatan error SSL</string>
+    <string name="smartx_notification_error_ssl_continue_text">Lanjut</string>
+    <string name="smartx_notification_error_ssl_cancel_text">Batal</string>
+</resources>

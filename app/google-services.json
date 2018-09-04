@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "956345026511",
+    "firebase_url": "https://sahabat-muslim-95d27.firebaseio.com",
+    "project_id": "sahabat-muslim-95d27",
+    "storage_bucket": "sahabat-muslim-95d27.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:956345026511:android:f997811133a5f04c",
+        "android_client_info": {
+          "package_name": "com.zaitunlabs.salim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "956345026511-5l8jsg13cvel22eub4sadbt3ptrm3pjr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIXEPAzP_YrPa14PuDU5cdTQOPy1tnKSw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

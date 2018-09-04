@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <WebView
+        android:id="@+id/webview"
+        android:background="@android:color/transparent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        />
+    <com.daimajia.numberprogressbar.NumberProgressBar
+        android:id="@+id/number_progress_bar"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        custom:progress_unreached_bar_height="2.75dp"
+        custom:progress_reached_bar_height="3dp"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/circle_progress_layout"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="57dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/loading_icon"/>
+        <com.github.lzyzsd.circleprogress.CircleProgress
+            android:id="@+id/circle_progress"
+            android:layout_width="70dp"
+            custom:circle_text_size="14sp"
+            custom:circle_text_color="#ff0006"
+            android:layout_gravity="center_horizontal"
+            custom:circle_finished_color="#000000"
+            android:layout_height="70dp"
+            custom:circle_progress="0"/>
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/reloadView"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:background="@android:color/white"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:text="@string/warning_connection_problem"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content" />
+            <Button
+                android:layout_width="wrap_content"
+                android:id="@+id/reloadButton"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/reload_text_when_connetion_problem"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>
