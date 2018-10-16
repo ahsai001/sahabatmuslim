@@ -9,13 +9,13 @@ android {
         applicationId "com.zaitunlabs.salim"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 8
+        versionCode 9
         //versionName "1.0.2.1" ==> vs 2
         //versionName "1.0.4.3" ==> vs 3
         //versionName "1.0.4.3" ==> vs 4
         //versionName "1.10.6.7" ==> vs 6
 
-        versionName "1.11.8.10"
+        versionName "1.11.9.11"
         multiDexEnabled true
     }
     buildTypes {

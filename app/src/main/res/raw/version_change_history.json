@@ -1,7 +1,10 @@
 [
     {
-      "item": "version 1.11.8.10",
-      "description": "- ubah tema"
+        "item": "version 1.11.9.11",
+        "description": "- perbaikan permission yg hilang saat update sebelumnya"
+    },{
+         "item": "version 1.11.8.10",
+         "description": "- ubah tema"
     },{
         "item": "version 1.10.7.8",
         "description": "- merubah crash report to crashlytics"

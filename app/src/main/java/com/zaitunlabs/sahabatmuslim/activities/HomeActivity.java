@@ -1,5 +1,6 @@
 package com.zaitunlabs.sahabatmuslim.activities;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -10,6 +11,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -44,6 +46,7 @@ import com.zaitunlabs.zlcore.modules.shaum_sholat.ManageShaumSholatReminderRecei
 import com.zaitunlabs.zlcore.services.FCMIntentService;
 import com.zaitunlabs.zlcore.utils.CommonUtils;
 import com.zaitunlabs.zlcore.utils.EventsUtils;
+import com.zaitunlabs.zlcore.utils.PermissionUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 
@@ -54,10 +57,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+
 public class HomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private WebViewFragment newFragment;
     private TextView messageItemView;
+    private PermissionUtils permissionUtils;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,21 +91,40 @@ public class HomeActivity extends BaseActivity
 
         navigationView.setItemIconTintList(null);
 
-        WebViewFragment oldFragment = (WebViewFragment)getSupportFragmentManager().findFragmentByTag(GeneralWebViewFragment.FRAGMENT_TAG);
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        if(oldFragment != null){
-            transaction.remove(oldFragment);
-        }
-        transaction.commit();
-        transaction = null;
+        permissionUtils = PermissionUtils.checkPermissionAndGo(this, 1122, false, null, null,
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        WebViewFragment oldFragment = (WebViewFragment)getSupportFragmentManager().findFragmentByTag(WebViewFragment.FRAGMENT_TAG);
+
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        if(oldFragment != null){
+                            transaction.remove(oldFragment);
+                        }
+                        transaction.commit();
+                        transaction = null;
 
 
-        transaction = getSupportFragmentManager().beginTransaction();
-        newFragment = new WebViewFragment();
-        newFragment.setArg(1,AppConfig.mainURL, null);
-        transaction.replace(R.id.home_container, newFragment, WebViewFragment.FRAGMENT_TAG);
-        transaction.commit();
+                        transaction = getSupportFragmentManager().beginTransaction();
+                        newFragment = new WebViewFragment();
+                        newFragment.setArg(1,AppConfig.mainURL, null);
+                        transaction.replace(R.id.home_container, newFragment, WebViewFragment.FRAGMENT_TAG);
+                        transaction.commit();
+
+                    }
+                }, new Runnable() {
+                    @Override
+                    public void run() {
+                        CommonUtils.showToast(HomeActivity.this, "Maaf aplikasi ini tidak berfungsi tanpa permission dari anda");
+                    }
+                }, Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.READ_CALENDAR,
+                Manifest.permission.WRITE_CALENDAR);
+
+
 
 
         ManageShaumSholatReminderReceiver.start(this);
@@ -109,6 +134,12 @@ public class HomeActivity extends BaseActivity
 
         EventsUtils.register(this);
         reCountMessage();
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        permissionUtils.onRequestPermissionsResult(requestCode,permissions,grantResults);
     }
 
     @Override
