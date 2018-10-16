@@ -1,6 +1,6 @@
 package com.zaitunlabs.sahabatmuslim.webservice;
 
-import com.zaitunlabs.zlcore.api.models.CheckVersionModel;
+import com.zaitunlabs.zlcore.models.CheckVersionModel;
 
 import retrofit2.Call;
 import retrofit2.http.Field;

@@ -35,13 +35,13 @@ import com.zaitunlabs.zlcore.activities.BaseOnBoardingActivity;
 import com.zaitunlabs.zlcore.activities.MessageListActivity;
 import com.zaitunlabs.zlcore.activities.StoreActivity;
 import com.zaitunlabs.zlcore.api.APIConstant;
-import com.zaitunlabs.zlcore.api.models.InformationModel;
+import com.zaitunlabs.zlcore.models.InformationModel;
 import com.zaitunlabs.zlcore.core.BaseActivity;
 import com.zaitunlabs.zlcore.events.InfoCounterEvent;
 import com.zaitunlabs.zlcore.fragments.GeneralWebViewFragment;
 import com.zaitunlabs.zlcore.modules.about.AboutUs;
 import com.zaitunlabs.zlcore.modules.shaum_sholat.ManageShaumSholatReminderReceiver;
-import com.zaitunlabs.zlcore.services.SendTokenIntentService;
+import com.zaitunlabs.zlcore.services.FCMIntentService;
 import com.zaitunlabs.zlcore.utils.CommonUtils;
 import com.zaitunlabs.zlcore.utils.EventsUtils;
 
@@ -114,7 +114,7 @@ public class HomeActivity extends BaseActivity
     @Override
     protected void onResume() {
         super.onResume();
-        SendTokenIntentService.startSending(this, APIConstant.API_APPID, false);
+        FCMIntentService.startSending(this, APIConstant.API_APPID, false);
     }
 
     @Override
@@ -181,9 +181,17 @@ public class HomeActivity extends BaseActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_about) {
+            /*
             AboutUs.start(this,R.mipmap.icon,0,R.string.share_title,R.string.share_body_template,
                     0,R.string.feedback_mail_to, R.string.feedback_title, R.string.feedback_body_template,
-                    0,R.raw.version_change_history, true, "https://zaitunlabs.com/sahabat-muslim/");
+                    0,R.raw.version_change_history, true, "https://zaitunlabs.com/sahabat-muslim/");*/
+
+            AboutUs.start(this,R.mipmap.icon,0,R.string.share_title,R.string.share_body_template,
+                    0,R.string.feedback_mail_to, R.string.feedback_title, R.string.feedback_body_template,
+                    0,R.raw.version_change_history, true, AppConfig.appLandingURL,
+                    false, null, null,getString(R.string.feedback_mail_to),0, null,
+                    R.color.colorPrimary,ContextCompat.getColor(this,android.R.color.white),ContextCompat.getColor(this,android.R.color.white),AppConfig.appLandingURL);
+
         } else if (id == R.id.nav_app_list) {
             //WebViewActivity.start(this, APIConstant.ZAITUNLABS_OTHER_APPS,"","","otherapps");
             AppListActivity.start(this);
@@ -214,6 +222,7 @@ public class HomeActivity extends BaseActivity
         public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
             webView.addJavascriptInterface(new WebAppInterface(this.getActivity()), "sahabatmuslim");
+            webView.getSettings().setUserAgentString("android");
         }
 
         private class WebAppInterface {

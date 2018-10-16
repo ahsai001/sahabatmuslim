@@ -1,5 +1,8 @@
 [
     {
+      "item": "version 1.11.8.10",
+      "description": "- ubah tema"
+    },{
         "item": "version 1.10.7.8",
         "description": "- merubah crash report to crashlytics"
     },{

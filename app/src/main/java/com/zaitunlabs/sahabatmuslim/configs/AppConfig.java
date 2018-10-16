@@ -9,6 +9,7 @@ public class AppConfig {
 
 
     public static String app_version = RELEASE_VERSION;
+    public static String appLandingURL = "https://zaitunlabs.com/sahabat-muslim/";
 
     public static boolean isDebugVersion(){
         return app_version.equalsIgnoreCase(DEBUG_VERSION);
