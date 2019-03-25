@@ -1,5 +1,8 @@
 [
     {
+        "item": "version 1.11.10.16",
+        "description": "- bug fixing : masalah pada saat buka aplikasi\n- perbaikan kecil lainnya"
+    },{
         "item": "version 1.11.9.11",
         "description": "- perbaikan permission yg hilang saat update sebelumnya"
     },{
