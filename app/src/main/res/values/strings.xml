@@ -46,16 +46,7 @@
     <string name="feedback_body_template"></string>
     <string name="share_title">sahabat muslim by zaitunlabs</string>
     <string name="share_body_template">Sahabat Muslim, tempat mencari jadwal kajian disekitar kita dengan mudah\n\nsilahkan download aplikasinya melalui link berikut\n\nhttps://zaitunlabs.com/yourls/sahabatmuslim\n\nuntuk info lebih lanjut https://zaitunlabs.com/sahabat-muslim//</string>
-    <string name="smartx_notification_error_ssl_date_invalid">The date of the certificate is invalid</string>
-    <string name="smartx_notification_error_ssl_expired">The certificate has expired</string>
-    <string name="smartx_notification_error_ssl_idmismatch">Hostname mismatch</string>
-    <string name="smartx_notification_error_ssl_invalid">A generic error occurred</string>
-    <string name="smartx_notification_error_ssl_not_yet_valid">The certificate is not yet valid</string>
-    <string name="smartx_notification_error_ssl_untrusted">The certificate authority is not trusted</string>
-    <string name="smartx_notification_error_ssl_cert_invalid">The certificate is invalid</string>
-    <string name="smartx_notification_error_ssl_title">SSL Error Warning</string>
-    <string name="smartx_notification_error_ssl_continue_text">Continue</string>
-    <string name="smartx_notification_error_ssl_cancel_text">Cancel</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

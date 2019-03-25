@@ -1,4 +1,4 @@
-package com.zaitunlabs.sahabatmuslim;
+package com.zaitunlabs.salim;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

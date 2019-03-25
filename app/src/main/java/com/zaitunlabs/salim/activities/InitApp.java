@@ -1,10 +1,8 @@
-package com.zaitunlabs.sahabatmuslim.activities;
+package com.zaitunlabs.salim.activities;
 
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 
-import com.zaitunlabs.sahabatmuslim.R;
-import com.zaitunlabs.sahabatmuslim.configs.AppConfig;
+import com.zaitunlabs.salim.R;
 import com.zaitunlabs.zlcore.activities.BaseSplashActivity;
 import com.zaitunlabs.zlcore.api.APIConstant;
 import com.zaitunlabs.zlcore.utils.CommonUtils;
@@ -29,8 +27,9 @@ public class InitApp extends BaseSplashActivity {
     }
 
     @Override
-    protected void doNextAction() {
+    protected boolean doNextAction() {
         HomeActivity.start(this);
+        return true;
     }
 
     @Override

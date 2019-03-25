@@ -1,4 +1,4 @@
-package com.zaitunlabs.sahabatmuslim.cores;
+package com.zaitunlabs.salim.cores;
 
 import com.zaitunlabs.zlcore.api.APIConstant;
 import com.zaitunlabs.zlcore.models.AppListDataModel;

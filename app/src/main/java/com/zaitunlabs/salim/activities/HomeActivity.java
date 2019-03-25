@@ -1,4 +1,4 @@
-package com.zaitunlabs.sahabatmuslim.activities;
+package com.zaitunlabs.salim.activities;
 
 import android.Manifest;
 import android.app.Activity;
@@ -11,29 +11,29 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.core.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.navigation.NavigationView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebView;
 import android.widget.TextView;
 
-import com.zaitunlabs.sahabatmuslim.R;
-import com.zaitunlabs.sahabatmuslim.configs.AppConfig;
+import com.zaitunlabs.salim.R;
+import com.zaitunlabs.salim.configs.AppConfig;
 import com.zaitunlabs.zlcore.activities.AppListActivity;
-import com.zaitunlabs.zlcore.activities.BaseOnBoardingActivity;
 import com.zaitunlabs.zlcore.activities.MessageListActivity;
 import com.zaitunlabs.zlcore.activities.StoreActivity;
 import com.zaitunlabs.zlcore.api.APIConstant;
@@ -47,6 +47,7 @@ import com.zaitunlabs.zlcore.services.FCMIntentService;
 import com.zaitunlabs.zlcore.utils.CommonUtils;
 import com.zaitunlabs.zlcore.utils.EventsUtils;
 import com.zaitunlabs.zlcore.utils.PermissionUtils;
+
 
 import org.greenrobot.eventbus.Subscribe;
 
@@ -83,7 +84,7 @@ public class HomeActivity extends BaseActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -123,7 +124,6 @@ public class HomeActivity extends BaseActivity
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.READ_CALENDAR,
                 Manifest.permission.WRITE_CALENDAR);
-
 
 
 
@@ -250,8 +250,23 @@ public class HomeActivity extends BaseActivity
         }
 
         @Override
+        protected View getCustomInfoView() {
+            return null;
+        }
+
+        @Override
+        protected int getCustomInfoTextView() {
+            return 0;
+        }
+
+        @Override
         public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
+        }
+
+        @Override
+        public void setupWebview(WebView webView) {
+            super.setupWebview(webView);
             webView.addJavascriptInterface(new WebAppInterface(this.getActivity()), "sahabatmuslim");
             webView.getSettings().setUserAgentString("android");
         }

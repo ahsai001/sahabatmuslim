@@ -1,4 +1,4 @@
-package com.zaitunlabs.sahabatmuslim.configs;
+package com.zaitunlabs.salim.configs;
 
 /**
  * Created by ahmad s on 9/27/2015.
